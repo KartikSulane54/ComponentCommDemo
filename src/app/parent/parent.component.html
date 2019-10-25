@@ -1,0 +1,47 @@
+<br>
+<br>
+<br>
+<div class="row">
+<fieldset>
+<legend><b> Parent to Child: Sharing Data via Input </b></legend>
+<app-child [childMessage]="parentMessage" [showButton]="false"></app-child>
+</fieldset>
+</div>
+
+<br>
+<br>
+<br>
+
+<div>
+<fieldset>
+  <legend><b> Child to Parent: Sharing Data via ViewChild </b></legend>
+  Message: {{ message }}
+    <app-child [showButton]="false"></app-child>
+  </fieldset>
+</div>
+
+<br>
+<br>
+<br>
+
+<div>
+<fieldset>
+  <legend><b> Child to Parent: Sharing Data via Output() and EventEmitter </b></legend>
+  Message: {{ recerivedMsgFromParent }}
+    <app-child (messageEvent)="receiveMessage($event)" [showButton]="true"></app-child>
+  </fieldset>
+</div>
+
+<br>
+<br>
+<br>
+
+<div>
+<fieldset>
+  <legend><b> Unrelated Components: Sharing Data with a Service </b></legend>
+  Message in Parent : {{ messageFromFuture }}
+  <app-sibling></app-sibling>
+  </fieldset>
+</div>
+
+
